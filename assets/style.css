@@ -5,7 +5,7 @@ body {
 }
 
 textarea {
-  background: transparent;
+  /* background: transparent; */
   border: none;
   resize: none;
   color: #000000;
@@ -21,7 +21,7 @@ textarea {
   border-bottom: 10px solid black;
 }
 
-.description {
+#description {
   white-space: pre-wrap;
 }
 
@@ -34,6 +34,7 @@ textarea {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
+  margin-top: 0.5rem;
 }
 
 .hour {

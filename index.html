@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./assets/style.css" />
   <title>Work Day Scheduler</title>
 </head>
 
@@ -20,16 +20,67 @@
     <p id="currentDay" class="lead"></p>
   </header>
   <div class="container">
-    <div class='row'>
-      <section class= 'col-2 col-8 col-2'>
-        
+    <div class="row">
+      <section class= "hour col-2 border d-flex align-items-center">
+        9am
       </section>
+      <textarea class= "col-8 border description" id="description">
+
+      </textarea>
+      <button class= "col-2 btn saveBtn">
+        Save
+      </button>
     </div>
-    <!-- Timeblocks go here -->
+    <div class="row">
+      <section class= "col-2 border d-flex align-items-center">
+        10am
+      </section>
+      <textarea class= "col-8 border description" placeholder="Enter task Here">
+        
+      </textarea>
+      <button class= "col-2 btn saveBtn">
+        Save
+      </button>
+    </div>
+    <div class="row">
+      <section class= "col-2 border d-flex align-items-center">
+        11am
+      </section>
+      <textarea class= "col-8 border description" placeholder="Enter task Here">
+        
+      </textarea>
+      <button class= "col-2 btn saveBtn">
+        Save
+      </button>
+    </div>
+    <div class="row">
+      <section class= "col-2 border d-flex align-items-center">
+        12pm
+      </section>
+      <textarea class= "col-8 border description" placeholder="Enter task Here">
+        
+      </textarea>
+      <button class= "col-2 btn saveBtn">
+        Save
+      </button>
+    </div>
+    <div class="row">
+      <section class= "col-2 border d-flex align-items-center">
+        1pm
+      </section>
+      <textarea class= "col-8 border description" placeholder="Enter task Here">
+        
+      </textarea>
+      <button class= "col-2 btn saveBtn">
+        Save
+      </button>
+    </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+  <script src="assets/script.js"></script>
 </body>
 
 </html>
