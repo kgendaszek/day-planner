@@ -22,13 +22,13 @@ If you have any questions about the application contact me directly at katieshak
 ## Contact
 katieshake27@gmail.com
 
-![Final image](assets/sfx-pics/quiz-img.png)
+![Final image](assets/finalpic.png)
 
 
 
 
 ## Website
-https://kgendaszek.github.io/code-quiz/
+https://kgendaszek.github.io/day-planner
 
 Check out my other work on GitHub.
 https://github.com/kgendaszek
