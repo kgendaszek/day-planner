@@ -20,54 +20,41 @@ console.log(currentDay);
 
 var tasksInputEl = document.querySelector('#user-input');
 var taskList = document.querySelector('.textarea');
-var tasks = [];
 
-function showTasks() {
-    tasksInputEl.innerHTML = '';
-    tasksInputEl.textContent = tasks.length;
-    for (var i = 0; i < tasks.length; i++) {
-        var task = tasks[i];
+//
+function saveTask(event) {
+    var selectedTaskBlock = event.target.previousElementSibling;
 
-        var p = document.createElement("p");
-        p.textContent = task;
+    text = $(selectedTaskBlock).val().trim();
+    console.log(text)
+    localStorage.setItem('hour' + selectedTaskBlock.id, text);
+};
 
-    }
-}
+function savedTasks() {
+    var selectedText;
+    var selectedItem;
+    var selectedBlock;
 
-var saveBtn = $(".saveBtn")
-saveBtn.on("click", function () {
-    console.log("Event saved")
+    for (var i = firstHour; i <= lastHour; i++) {
+        selectedItem = 'hour' + i.toString();
+        selectedText = localStorage.getItem(selectedItem);
 
-    function saveTask() {
-        console.log('saveTask')
-        var taskValue = tasksInputEl.value.trim();
-        console.log(taskValue)
-        if (taskValue) {
-            tasks = JSON.parse(localStorage.getItem('taskValue', taskValue));
-            if (!tasks) {
-                tasks = [];
-            }
-            console.log(taskValue)
-
-            localStorage.setItem('taskValue', JSON.stringify(taskValue));
-            console.log(tasks)
+        if (selectedText != null) {
+            selectedBlock = document.getElementById(i);
+            selectedBlock.textContent = selectedText;
         }
-        return;
     }
-    saveTask();
+}
 
-})
+
+
 function init() {
-    var savedTasks = JSON.parse(localStorage.getItem('taskValue'));
-    console.log(savedTasks)
-    if (savedTasks !== null) {
-        taskValue = savedTasks;
-        taskValue = [];
-        console.log(savedTasks);
+    var savebtn = document.getElementsByClassName('saveBtn');
+    for (var i = 0; i < savebtn.length; i++) {
+        savebtn[i].addEventListener('click', saveTask)
     }
 
 }
-showTasks();
 init();
 
 
