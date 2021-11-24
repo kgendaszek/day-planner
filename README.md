@@ -6,7 +6,7 @@
 * [License](#license)
 * [Contributors](#contributors)
 * [Questions](#questions)
-* [Website] (#website)
+* [Website](#website)
 ## Description
 A basic day planner to keep track of your day!
 ## Install
@@ -22,7 +22,7 @@ If you have any questions about the application contact me directly at katieshak
 ## Contact
 katieshake27@gmail.com
 
-![Final image](assets/finalpic.png)
+![Final image](assets/dp-final.png)
 
 
 
