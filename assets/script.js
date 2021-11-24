@@ -14,15 +14,15 @@ console.log("script.js is running")
 // THEN the saved events persist
 
 //set times for beginning and end of planner
-var firstHour= 9;
-var lastHour= 17;
+var firstHour = 9;
+var lastHour = 17;
 
 //current date at top
-function setToday(){
-var currentDay = moment().format("ddd, MMM, Do, YYYY, h:mm:ss")
-$("#currentDay").text(currentDay);
-console.log(currentDay);
-setInterval(setToday, 5000)
+function setToday() {
+    var currentDay = moment().format("ddd, MMM, Do, YYYY, h:mm:ss")
+    $("#currentDay").text(currentDay);
+    // console.log(currentDay); Kept repeating!
+    setInterval(setToday, 5000)
 };
 setToday();
 //save tasks to local storage
@@ -34,38 +34,33 @@ function saveTask(event) {
     console.log(localStorage);
 };
 function savedTasks() {
-    var selectedText;
-    var selectedTime;
-    var selectedBlock;
-
     for (var i = firstHour; i <= lastHour; i++) {
-        selectedTime = 'user-input' + i.toString();
-        selectedText = localStorage.getItem(selectedTime);
+        var selectedTime = 'user-input' + i.toString();
+        var selectedText = localStorage.getItem(selectedTime);
 
         if (selectedText != null) {
-            selectedBlock = document.getElementById(i);
+            var selectedBlock = document.getElementById(i);
             selectedBlock.textContent = selectedText;
         }
     }
 }
-function setTaskBlock(){
-    var currentTime = moment().format('H');
+//Set up time blocks to change color based on time
+function setTaskBlock() {
+    var currentTime = moment().hour();
     console.log(currentTime)
-    var timeBlock;
 
-    
-    for (var time = firstHour; time <= lastHour; time++){
-        timeBlock = document.getElementByClass(description.toString());
-        if (currentTime == time ){
+    for (var time = firstHour; time <= lastHour; time++) {
+        var timeBlock = document.getElementById(time.toString());
+        if (currentTime === time) {
             timeBlock.classList.add('present');
             timeBlock.classList.remove('past');
             timeBlock.classList.remove('future')
         }
-        if (currentTime < time){
+        if (currentTime < time) {
             timeBlock.classList.add('future');
             timeBlock.classList.remove('past');
             timeBlock.classList.remove('present');
-        } 
+        }
         else {
             timeBlock.classList.add('past');
             timeBlock.classList.remove('present');
@@ -73,17 +68,18 @@ function setTaskBlock(){
         }
     }
 }
-    function changeColors(){
-        setInterval(setTaskBlock, 60000)
-        
-    }
+function changeColors() {
+    setInterval(setTaskBlock, 60000)
+
+}
 function init() {
+    setTaskBlock();
     changeColors();
     savedTasks();
 }
 var saveBtns = document.getElementsByClassName('saveBtn');
-    for (var i = 0; i < saveBtns.length; i++) {
-        saveBtns[i].addEventListener('click', saveTask);
-    }
+for (var i = 0; i < saveBtns.length; i++) {
+    saveBtns[i].addEventListener('click', saveTask);
+}
 init();
 
