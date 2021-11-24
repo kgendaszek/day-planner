@@ -30,7 +30,7 @@ function saveTask(event) {
     var selectedTaskBlock = event.target.previousElementSibling;
     text = $(selectedTaskBlock).val().trim();
     console.log(text)
-    localStorage.setItem('hour' + selectedTaskBlock.id, text);
+    localStorage.setItem('user-input' + selectedTaskBlock.id, text);
     console.log(localStorage);
 };
 function savedTasks() {
@@ -39,7 +39,7 @@ function savedTasks() {
     var selectedBlock;
 
     for (var i = firstHour; i <= lastHour; i++) {
-        selectedTime = 'hour' + i.toString();
+        selectedTime = 'user-input' + i.toString();
         selectedText = localStorage.getItem(selectedTime);
 
         if (selectedText != null) {
@@ -55,7 +55,7 @@ function setTaskBlock(){
 
     
     for (var time = firstHour; time <= lastHour; time++){
-        timeBlock = document.getElementById(user-input.toString());
+        timeBlock = document.getElementByClass(description.toString());
         if (currentTime == time ){
             timeBlock.classList.add('present');
             timeBlock.classList.remove('past');
