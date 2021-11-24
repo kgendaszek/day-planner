@@ -53,32 +53,33 @@ function setTaskBlock(){
     console.log(currentTime)
     var timeBlock;
 
-    $('.description').removeClass('present');
-    $('.description').removeClass('past');
-    $('.description').removeClass('future');
+    
     for (var time = firstHour; time <= lastHour; time++){
-        timeBlock = document.getElementById(time.toString());
+        timeBlock = document.getElementById(user-input.toString());
         if (currentTime == time ){
             timeBlock.classList.add('present');
+            timeBlock.classList.remove('past');
+            timeBlock.classList.remove('future')
         }
-        else if (currentTime < time){
+        if (currentTime < time){
             timeBlock.classList.add('future');
+            timeBlock.classList.remove('past');
+            timeBlock.classList.remove('present');
         } 
         else {
             timeBlock.classList.add('past');
+            timeBlock.classList.remove('present');
+            timeBlock.classList.remove('future');
         }
     }
 }
     function changeColors(){
-        setTaskBlock();
         setInterval(setTaskBlock, 60000)
         
     }
 function init() {
     changeColors();
-    setupTimes();
     savedTasks();
-    updateTime();
 }
 var saveBtns = document.getElementsByClassName('saveBtn');
     for (var i = 0; i < saveBtns.length; i++) {
